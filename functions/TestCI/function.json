@@ -1,5 +1,6 @@
 {
-  "bindings": [
+    "scriptFile": "__init__.py",
+    "bindings": [
     {
       "authLevel": "function",
       "type": "httpTrigger",
