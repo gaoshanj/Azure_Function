@@ -12,7 +12,7 @@ jobs:
           python-version: '3.11'
       - name: Zip Function for test
         run: |
-          zip -r release.zip ./functions/TestCI
+          zip -r release.zip host.json ./functions/TestCI
       - uses: Azure/functions-action@v1
         with:
           app-name: trainingqa
