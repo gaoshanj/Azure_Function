@@ -10,10 +10,16 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: '3.9'
+      - name: Zip Function for test
+        run: |
+          zip -r release.zip ./functions/TestCI
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       - uses: Azure/functions-action@v1
         with:
           app-name: trainingqa
-          package: ./functions/TestCI
+          slot-name: Production
+          package: release.zip
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2CA84C2AE7B14E059F01B549A8C56105 }}
+          sku: 'flexconsumption'

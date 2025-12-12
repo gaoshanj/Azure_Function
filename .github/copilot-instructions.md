@@ -51,5 +51,6 @@ jobs:
 
 ## gpt-5-nano模型
 - 模型每分钟Token限制：200K
+- 每次回复为止：64K Token
 
 ```markdown
