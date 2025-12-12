@@ -1,2 +1,3 @@
 azure-functions
 azure-ai-openai
+azure-core
