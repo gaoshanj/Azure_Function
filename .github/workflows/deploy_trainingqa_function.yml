@@ -17,6 +17,8 @@ jobs:
           rm -rf ziproot
           mkdir -p ziproot/TestCI
           cp -R functions/TestCI/. ziproot/TestCI
+          mkdir -p ziproot/OpenAiContentReply
+          cp -R functions/OpenAiContentReply/. ziproot/OpenAiContentReply
           cp host.json ziproot/host.json
           python -m venv venv
           source venv/bin/activate
