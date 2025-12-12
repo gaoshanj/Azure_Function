@@ -10,9 +10,16 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-      - name: Zip Function for test
+      - name: Prepare deployment package for TestCI
         run: |
-          zip -r release.zip host.json ./functions/TestCI
+          # Rebuild a zip that has TestCI at the repository root and host.json at root
+          rm -f release.zip
+          rm -rf ziproot
+          mkdir -p ziproot/TestCI
+          cp -R functions/TestCI/. ziproot/TestCI
+          cp host.json ziproot/host.json
+          (cd ziproot; zip -r ../release.zip .)
+          ls -l release.zip
       - uses: Azure/functions-action@v1
         with:
           app-name: trainingqa
