@@ -18,6 +18,9 @@ jobs:
           mkdir -p ziproot/TestCI
           cp -R functions/TestCI/. ziproot/TestCI
           cp host.json ziproot/host.json
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r requirements.txt -t ziproot
           (cd ziproot; zip -r ../release.zip .)
           ls -l release.zip
       - uses: Azure/functions-action@v1
